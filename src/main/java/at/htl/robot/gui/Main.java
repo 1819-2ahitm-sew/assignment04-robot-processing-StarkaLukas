@@ -1,3 +1,6 @@
+/*
+    Lukas Starka
+ */
 package at.htl.robot.gui;
 
 import at.htl.robot.model.Robot;
