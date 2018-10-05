@@ -1,5 +1,5 @@
 /*
-    Lukas Starka
+    Von: Lukas Starka
  */
 package at.htl.robot.gui;
 
