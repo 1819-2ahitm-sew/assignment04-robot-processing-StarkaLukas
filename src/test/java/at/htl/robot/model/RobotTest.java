@@ -1,11 +1,11 @@
 package at.htl.robot.model;
 
+import at.htl.robot.gui.Main;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.jupiter.api.Assertions.*;
 
 class RobotTest {
 
@@ -26,7 +26,7 @@ class RobotTest {
     void stepSouth() {
         Robot robot = new Robot();
 
-        robot.stepForward();
+        robot.stepForward(Main.fieldBox);
 
         assertThat(robot.getX(), is(0));
         assertThat(robot.getY(), is(1));
@@ -88,10 +88,10 @@ class RobotTest {
 
         robot.rotateLeft();
         robot.rotateLeft();
-        robot.stepForward();
+        robot.stepForward(Main.fieldBox);
 
         assertThat(robot.getX(), is(0));
-        assertThat(robot.getY(), is(-1));
+        assertThat(robot.getY(), is(7));
         assertThat(robot.getDirection(), is(Direction.NORTH));
     }
 
@@ -100,7 +100,7 @@ class RobotTest {
         Robot robot = new Robot();
 
         robot.rotateLeft();
-        robot.stepForward();
+        robot.stepForward(Main.fieldBox);
 
         assertThat("Falscher X-Wert", robot.getX(), is(1));
         assertThat("Falscher y-Wert", robot.getY(), is(0));
@@ -114,9 +114,9 @@ class RobotTest {
         robot.rotateLeft();
         robot.rotateLeft();
         robot.rotateLeft();
-        robot.stepForward();
+        robot.stepForward(Main.fieldBox);
 
-        assertThat("Falscher X-Wert", robot.getX(), is(-1));
+        assertThat("Falscher X-Wert", robot.getX(), is(7));
         assertThat("Falscher y-Wert", robot.getY(), is(0));
         assertThat("Falsche Richtung", robot.getDirection(), is(Direction.WEST));
     }
@@ -126,8 +126,8 @@ class RobotTest {
         Robot robot = new Robot();
 
         robot.rotateLeft();
-        robot.stepForward();
-        robot.stepForward();
+        robot.stepForward(Main.fieldBox);
+        robot.stepForward(Main.fieldBox);
 
         assertThat("Falscher X-Wert", robot.getX(), is(2));
         assertThat("Falscher y-Wert", robot.getY(), is(0));
